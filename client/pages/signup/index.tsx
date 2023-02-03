@@ -10,9 +10,34 @@ import MaskGroup from "../../assets/img/Mask-Group.svg";
 import { AiOutlineUser, AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import useMediaQuery from "../../hooks/useMediaQuey";
+import useForm from "../../hooks/useForm";
+import { REGISTER_INITIAL_VALUES } from "../../constants/constants";
+import { validationRegister } from "../../helpers/validations";
+import { register, restart } from "../../features/user/authSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/useTypedSelector";
+import { useEffect } from "react";
 
-const signUp: NextPage = () => {
+const SignUp: NextPage = () => {
   const { width } = useMediaQuery();
+  const dispatch = useAppDispatch();
+
+  const { error } = useAppSelector((state) => state.auth);
+
+  const { values, radio, handleChange, handleSubmit, errors } = useForm(
+    REGISTER_INITIAL_VALUES,
+    register,
+    validationRegister
+  );
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        dispatch(restart());
+      }, 5000);
+    }
+  }, [error]);
+
+  errors ? console.log(errors) : null;
 
   return width < 1000 ? (
     <div className={styles.container}>
@@ -23,25 +48,101 @@ const signUp: NextPage = () => {
           <Image src={Doodle2} alt="Doodle2" className={styles.doodle2} />
         </div>
       </div>
-      <div className={styles.signup}>
-        <div className={styles.signupTitle}>
-          <h3>Sign up</h3>
+      <form onSubmit={handleSubmit}>
+        <div className={styles.signup}>
+          <div className={styles.signupTitle}>
+            <h3>Sign up</h3>
+          </div>
+          <div className={styles.hr}></div>
+
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="username"
+            name="username"
+            value={values.username}
+            onChange={handleChange}
+            required
+          />
+          <div className={styles.username}>
+            <AiOutlineUser />{" "}
+          </div>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            required
+          />
+          <div className={styles.mail}>
+            <AiOutlineMail />{" "}
+          </div>
+          <input
+            className={styles.input}
+            type="password"
+            placeholder="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+            required
+          />
+          <div className={styles.password}>
+            <RiLockPasswordLine />{" "}
+          </div>
+          <div className={styles.role}>
+            <div>
+              <input
+                id="mentee"
+                type="radio"
+                name="role"
+                value="63d16c731dfcf6c28530f5ab"
+                onChange={handleChange}
+                checked={radio.value}
+              />
+              <label className={styles.label} htmlFor="mentee">
+                Mentee
+              </label>
+            </div>
+            <div>
+              <input
+                id="mentor"
+                type="radio"
+                name="role"
+                value="63d16c731dfcf6c28530f5ac"
+                onChange={handleChange}
+                checked={!radio.value}
+              />
+              <label className={styles.label} htmlFor="mentor">
+                Mentor
+              </label>
+            </div>
+          </div>
         </div>
-        <div className={styles.hr}></div>
-        <input className={styles.input} type="text" placeholder="username" />
-        <div className={styles.username}>
-          <AiOutlineUser />{" "}
-        </div>
-        <input className={styles.input} type="text" placeholder="email" />
-        <div className={styles.mail}>
-          <AiOutlineMail />{" "}
-        </div>
-        <input className={styles.input} type="text" placeholder="password" />
-        <div className={styles.password}>
-          <RiLockPasswordLine />{" "}
-        </div>
-      </div>
-      <button className={styles.button}>Sign up</button>
+        <button className={styles.button} type="submit">
+          Sign up
+        </button>
+        {error ? (
+          <div className={styles.error}>
+            <h3>Ups...</h3>
+            <div className={styles.hr3}></div>
+            {error?.map((err: { msg: string }, i) => (
+              <p key={i}>{err.msg}</p>
+            ))}
+          </div>
+        ) : null}
+        {Object.keys(errors).length !== 0 ? (
+          <div className={styles.error}>
+            <h3>Ups...</h3>
+            <div className={styles.hr3}></div>
+            {Object.values(errors).map((error: any, i) => (
+              <p key={i}>{error}</p>
+            ))}
+          </div>
+        ) : null}
+        
+      </form>
     </div>
   ) : (
     <div className={styles.container}>
@@ -63,31 +164,106 @@ const signUp: NextPage = () => {
           <Image src={Doodle} alt="Doodle" className={styles.doodle} />
 
           <Image src={Doodle3} alt="Doodle" className={styles.doodle3} />
-          
         </div>
         <div className={styles.hr2}></div>
         <div className={styles.signup}>
-          <div className={styles.signupTitle}>
-            <h3>Sign up</h3>
-          </div>
-          <div className={styles.hr}></div>
-          <input className={styles.input} type="text" placeholder="username" />
-          <div className={styles.username}>
-            <AiOutlineUser />{" "}
-          </div>
-          <input className={styles.input} type="text" placeholder="email" />
-          <div className={styles.mail}>
-            <AiOutlineMail />{" "}
-          </div>
-          <input className={styles.input} type="text" placeholder="password" />
-          <div className={styles.password}>
-            <RiLockPasswordLine />{" "}
-          </div>
-          <button className={styles.button}>Sign up</button>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.signupTitle}>
+              <h3>Sign up</h3>
+            </div>
+            <div className={styles.hr}></div>
+            <input
+              className={styles.input}
+              type="text"
+              placeholder="username"
+              name="username"
+              value={values.username}
+              onChange={handleChange}
+              required
+            />
+            <div className={styles.username}>
+              <AiOutlineUser />{" "}
+            </div>
+            <input
+              className={styles.input}
+              type="text"
+              placeholder="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              required
+            />
+            <div className={styles.mail}>
+              <AiOutlineMail />{" "}
+            </div>
+
+            <input
+              className={styles.input}
+              type="password"
+              placeholder="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              required
+            />
+            <div className={styles.password}>
+              <RiLockPasswordLine />{" "}
+            </div>
+
+            <div className={styles.role}>
+              <div>
+                <input
+                  id="mentee"
+                  type="radio"
+                  name="role"
+                  value="63d16c731dfcf6c28530f5ab"
+                  onChange={handleChange}
+                  checked={radio.value}
+                />
+                <label className={styles.label} htmlFor="mentee">
+                  Mentee
+                </label>
+              </div>
+              <div>
+                <input
+                  id="mentor"
+                  type="radio"
+                  name="role"
+                  value="63d16c731dfcf6c28530f5ac"
+                  onChange={handleChange}
+                  checked={!radio.value}
+                />
+                <label className={styles.label} htmlFor="mentor">
+                  Mentor
+                </label>
+              </div>
+            </div>
+            <button className={styles.button} type="submit">
+              Sign up
+            </button>
+            {error ? (
+              <div className={styles.error}>
+                <h3>Ups...</h3>
+                <div className={styles.hr3}></div>
+                {error?.map((err: { msg: string }, i) => (
+                  <p key={i}>{err.msg}</p>
+                ))}
+              </div>
+            ) : null}
+            {Object.keys(errors).length !== 0 ? (
+              <div className={styles.error}>
+                <h3>Ups...</h3>
+                <div className={styles.hr3}></div>
+                {Object.values(errors).map((error: any, i) => (
+                  <p key={i}>{error}</p>
+                ))}
+              </div>
+            ) : null}
+          </form>
         </div>
       </div>
     </div>
   );
 };
 
-export default signUp;
+export default SignUp;

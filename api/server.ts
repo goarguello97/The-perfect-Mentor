@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./db";
 import router from "./routes/index.routes";
 import createRoles from "./config/initialSetup";
+import morgan from "morgan"
 
 const app = express();
 dotenv.config();
@@ -12,6 +13,7 @@ connectDB();
 createRoles();
 app.use(express.json());
 app.use(cors());
+app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);

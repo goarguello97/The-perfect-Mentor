@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       <Link href="/signup" className={styles.signUp}>
         <p>Sign Up</p>
       </Link>
-      <Link href="" className={styles.logIn}>
+      <Link href="/signin" className={styles.logIn}>
         <p>Log in</p>
       </Link>
     </div>
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
           <Link href="/signup" className={styles.signUp}>
             <p>Sign up</p>
           </Link>
-          <Link href="" className={styles.logIn}>
+          <Link href="/signin" className={styles.logIn}>
             <p>Log in</p>
           </Link>
         </div>
