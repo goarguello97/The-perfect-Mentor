@@ -1,129 +1,242 @@
-.container {
-  padding: 0 2rem;
-}
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap");
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+/* Mediaquery mobile first */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: #bfd732;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  width: 315px;
+  z-index: 3;
 }
 
-.title,
-.description {
+.saly {
+  width: 315px;
+  height: 360px;
+  position: relative;
+}
+
+.saly1 {
+  width: 336px;
+  height: auto;
+  position: absolute;
+  top: -123px;
+  left: -14px;
+  z-index: 1;
+}
+
+.doodle {
+  width: 178px;
+  position: absolute;
+  top: -28px;
+}
+
+.doodle2 {
+  width: 130px;
+  position: absolute;
+  top: 242px;
+  left: 100px;
+}
+
+.ellipse {
+  position: absolute;
+  top: -60px;
+  left: 50px;
+  z-index: 2;
+}
+
+.logIn {
+  width: 315px;
+  height: 55px;
+  margin-top: 17px;
+  mix-blend-mode: normal;
+  border: 2px solid #444444;
+  border-radius: 40px;
+}
+
+.logIn p {
+  width: 100%;
+  height: 55px;
   text-align: center;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #444444;
+  mix-blend-mode: normal;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.signUp {
+  width: 315px;
+  height: 55px;
+  margin-top: 17px;
+  background: #444444;
+  mix-blend-mode: normal;
+  border-radius: 40px;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.signUp p {
+  width: 100%;
+  height: 55px;
+  text-align: center;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #f5f6f7;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+/* Mediaquery */
+
+@media screen and (min-width: 768px) {
+  .saly1 {
+    left: 200px;
+  }
+
+  .ellipse {
+    left: 250px;
+  }
+
+  .doodle {
+    left: 200px;
+  }
+
+  .doodle2 {
+    left: 300px;
+  }
+}
+@media screen and (min-width: 820px) {
+  .saly1 {
+    left: 220px;
+  }
+
+  .ellipse {
+    left: 270px;
+  }
+
+  .doodle {
+    left: 220px;
+  }
+
+  .doodle2 {
+    left: 320px;
+  }
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+/* Mediaquery horizontal */
+
+@media screen and (min-height: 360px) and (min-width: 600px) {
+  .title {
+    margin-top: 17px;
+  }
+
+  .saly{
+    height: 190px;
+  }
+
+  .saly1 {
+    width: auto;
+    height: 350px;
+    left: 40px;
+    top: -122px;
+  }
+
+  .ellipse {
+    top: -110px;
+    left: 50px;
+  }
+
+  .doodle {
+    width: 150px;
+    top: -85px;
+    left: -10px;
+  }
+
+  .doodle2 {
+    top: 33px;
+    left: -43px;
+  }
+
+  .signUp {
+    z-index: 2;
+  }
+
+  .logIn {
+    margin-bottom: 17px;
+    z-index: 2;
+  }
+  .logIn p {
+    height: auto;
+  }
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
+@media screen and (min-width: 1000px) {
+  .principal {
+    width: 886px;
+    height: 514px;
+    border: 2px solid #444444;
+    border-radius: 40px;
+    display: flex;
+  }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
+  .images {
+    width: 487.3px;
+    height: 100%;
+    position: relative;
+  }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
+  .salySvg {
+    position: absolute;
+    width: 784px;
+    height: auto;
+    top: -150px;
+    left: -179px;
+  }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
+  .doodle {
+    position: absolute;
+    width: 221.08px;
+    top: 10px;
+    left: -95px;
+    transform: rotate(-5.8deg);
+  }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
+  .doodle2 {
+    width: 245px;
+    height: 250px;
+    transform: rotate(54.34deg);
+    top: 0px;
+    left: 760px;
+  }
+
+  .doodle3 {
+    position: absolute;
+    width: 195.19px;
+    height: auto;
+    top: -125px;
+    left: 370px;
+    transform: rotate(-2deg);
+  }
+
+  .titleDesktop {
+    width: 398.7px;
+    height: 100%;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
+  .title {
+    width: 248.37px;
+    margin-bottom: 35px;
   }
 }

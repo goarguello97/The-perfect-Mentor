@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap");
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #bfd732;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 315px;
+  position: relative;
+}
+
+.doodle {
+  width: 182px;
+  position: absolute;
+  top: -43px;
+  left: 129px;
+  transform: rotate(-87.2deg);
+}
+
+.doodle2 {
+  width: 108px;
+  position: absolute;
+  top: -80px;
+  left: 90px;
+}
+
+.signup {
+  width: 315px;
+  height: 360px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #444444;
+  border-radius: 40px;
+  position: relative;
+}
+
+.signupTitle {
+  width: 100%;
+  display: flex;
+  padding-left: 25px;
+}
+
+.signupTitle h3 {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 44px;
+  color: #444444;
+  mix-blend-mode: normal;
+}
+
+.hr {
+  width: 285px;
+  height: 0px;
+  border: 1px dashed #444444;
+}
+
+.signinName {
+  width: 100%;
+  height: 44px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 44px;
+  color: #444444;
+  margin: 0;
+  margin-top: 25px;
+  margin-left: 55px;
+}
+
+.input {
+  width: 265px;
+  height: 55px;
+  margin-top: 15px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #444444;
+  border: 1px solid #444444;
+  border-radius: 40px;
+  background-color: transparent;
+  padding-left: 55px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.username {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  position: absolute;
+  left: 35px;
+  top: 153px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mail {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  position: absolute;
+  left: 35px;
+  top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 16px;
+  position: absolute;
+  left: 35px;
+  top: 266px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forgot {
+  width: 100%;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #444444;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 55px;
+}
+
+.button {
+  width: 315px;
+  height: 55px;
+  margin-top: 20px;
+  background: #444444;
+  mix-blend-mode: normal;
+  border: none;
+  border-radius: 40px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+/* Mediaquery horizonal */
+
+@media screen and (min-width: 600px) and (min-height: 350px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .title {
+    margin-left: 20px;
+    width: 50%;
+  }
+
+  .signup {
+    height: 345px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .username {
+    left: 23px;
+    top: 144px;
+  }
+
+  .mail {
+    left: 17px;
+    top: 195px;
+  }
+
+  .password {
+    left: 17px;
+    top: 256px;
+  }
+
+  .button {
+    margin-right: 5px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .principal {
+    width: 886px;
+    height: 479px;
+    border: 2px solid #444444;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .vector {
+    position: absolute;
+    width: 200.62px;
+    top: -120px;
+    right: 183px;
+  }
+
+  .images {
+    width: 50%;
+    height: 100%;
+    position: relative;
+  }
+
+  .saly2 {
+    width: 572px;
+    position: absolute;
+    top: -60px;
+    left: -70px;
+  }
+
+  .maskgroup {
+    width: 228px;
+    position: absolute;
+    top: -66px;
+    left: -60px;
+  }
+
+  .doodle {
+    width: 184.89px;
+    position: absolute;
+    top: 93px;
+    left: 275px;
+    transform: rotate(195.31deg);
+  }
+
+  .doodle2 {
+    width: 245px;
+    height: auto;
+    position: absolute;
+    top: -130px;
+    left: 225px;
+    transform: rotate(145.31deg);
+  }
+
+  .doodle3 {
+    width: 204.46px;
+    height: auto;
+    position: absolute;
+    top: 290px;
+    left: -20px;
+    transform: rotate(346.31deg);
+  }
+
+  .hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hr2 {
+    position: absolute;
+    width: 416px;
+    height: 0px;
+    border: 2px solid #444444;
+    transform: rotate(90deg);
+  }
+
+  .signup {
+    width: 50%;
+    border: none;
+  }
+
+  .signupTitle {
+    width: 100%;
+    height: 59px;
+    padding-left: 60px;
+  }
+
+  .signupTitle h3 {
+    font-family: "Heebo";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 59px;
+    color: #444444;
+    margin: 0;
+  }
+
+  .input {
+    width: 323px;
+    margin-top: 10px;
+  }
+
+  .username {
+    left: 70px;
+    top: 111px;
+  }
+
+  .mail {
+    left: 70px;
+    top: 123px;
+  }
+
+  .password {
+    left: 70px;
+    top: 189px;
+  }
+
+  .forgot {
+    margin-left: 0px;
+    padding-left: 60px;
+  }
+
+  .button {
+    margin-top: 0;
+  }
+}
