@@ -8,19 +8,33 @@ export const register = createAsyncThunk(
       const newUser = await axiosInstance.post("/users/register", data);
       return { status: newUser.status, message: newUser.data.message };
     } catch (error: any) {
-      console.log(error.response.data)
       return thunkApi.rejectWithValue(error.response.data.errors);
     }
   }
 );
+
+export const login = createAsyncThunk("LOGIN", async (data: {}, thunkApi) => {
+  try {
+    const userLogin = await axiosInstance.post("users/login", data);
+    console.log(userLogin);
+    return {
+      status: userLogin.status,
+      message: userLogin.data.message,
+      user: userLogin.data.payload,
+    };
+  } catch (error: any) {
+    return thunkApi.rejectWithValue(error.response.data);
+  }
+});
 
 export const restart = createAsyncThunk("RESTART", (_, thunkapi) => {
   return null;
 });
 
 const initialState = {
-  error: null || [],
+  error: [],
   userRegister: {},
+  userLogged: {},
   isUserLogged: false,
   isLoading: false,
 };
@@ -42,7 +56,18 @@ export const authSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(restart.fulfilled, (state, action: PayloadAction<any>) => {
-      state.error = action.payload;
+      state.error = [];
+    });
+    builder.addCase(login.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.userLogged = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(login.rejected, (state, action: PayloadAction<any>) => {
+      state.error = state.error.concat(action.payload);
+      state.isLoading = false;
     });
   },
 });

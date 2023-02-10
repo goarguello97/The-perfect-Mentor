@@ -43,6 +43,21 @@
   position: relative;
 }
 
+.signup button {
+  width: 315px;
+  height: 55px;
+  margin-top: 20px;
+  background: #444444;
+  mix-blend-mode: normal;
+  border: none;
+  border-radius: 40px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+}
+
 .signupTitle {
   width: 100%;
   display: flex;
@@ -66,7 +81,7 @@
 }
 
 .signinName {
-  width: 100%;
+  width: 315px;
   height: 44px;
   font-family: "Heebo";
   font-style: normal;
@@ -76,7 +91,8 @@
   color: #444444;
   margin: 0;
   margin-top: 25px;
-  margin-left: 55px;
+  margin-left: 0px;
+  padding-left: 27px;
 }
 
 .input {
@@ -139,7 +155,7 @@
 }
 
 .forgot {
-  width: 100%;
+  width: 315px;
   font-family: "Heebo";
   font-style: normal;
   font-weight: 400;
@@ -148,7 +164,8 @@
   color: #444444;
   margin-top: 15px;
   margin-bottom: 15px;
-  margin-left: 55px;
+  margin-left: 0px;
+  padding-left: 27px;
 }
 
 .button {
@@ -166,6 +183,50 @@
   line-height: 22px;
 }
 
+.errorContainer{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  width: 300px;
+  margin-top: 40px;
+  height: auto;
+  text-align: center;
+  color: #1d3557;
+  background-color: #e63946;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error h3 {
+  width: 285px;
+  text-align: start;
+  margin-bottom: 0;
+}
+
+.hr3 {
+  width: 285px;
+  height: 0px;
+  border: 1px dashed #444444;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.error p {
+  width: 285px;
+  text-align: start;
+}
+
 /* Mediaquery horizonal */
 
 @media screen and (min-width: 600px) and (min-height: 350px) {
@@ -179,10 +240,17 @@
   }
 
   .signup {
-    height: 345px;
+    height: 263px;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 28px;
+  }
+  .signinName{
+    width: 315px;
+    margin-left: 0px;
+    padding-left: 27px;
   }
 
   .username {
@@ -191,13 +259,23 @@
   }
 
   .mail {
-    left: 17px;
-    top: 195px;
+    width: 15px;
+    height: 15px;
+    left: 30px;
+    top: 162px;
   }
 
   .password {
-    left: 17px;
-    top: 256px;
+    width: 15px;
+    height: 15px;
+    left: 30px;
+    top: 202px;
+  }
+
+  .forgot{
+    width: 315px;
+    margin-left: 0px;
+    padding-left: 27px;
   }
 
   .button {
@@ -220,7 +298,7 @@
   .vector {
     position: absolute;
     width: 200.62px;
-    top: -120px;
+    top: -112px;
     right: 183px;
   }
 
@@ -271,6 +349,7 @@
   }
 
   .hr {
+    margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -286,6 +365,10 @@
   .signup {
     width: 50%;
     border: none;
+  }
+
+  .signup form{
+    text-align: center;
   }
 
   .signupTitle {
@@ -315,21 +398,53 @@
   }
 
   .mail {
+    width: 30px;
+    height: 30px;
     left: 70px;
-    top: 123px;
+    top: 74px;
   }
 
   .password {
+    width: 30px;
+    height: 30px;
     left: 70px;
-    top: 189px;
+    top: 138px;
   }
 
   .forgot {
-    margin-left: 0px;
-    padding-left: 60px;
+   
+    width: 100%;
   }
 
   .button {
     margin-top: 0;
+  }
+
+  .error {
+    position: absolute;
+    width: 324px;
+    height: auto;
+    text-align: center;
+    top: 21px;
+    left: 57px;
+    color: #1d3557;
+    background-color: #e63946;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .error h3 {
+    width: 100%;
+    text-align: start;
+    margin-left: 48px;
+    margin-bottom: 0;
+  }
+
+  .error p {
+    width: 285px;
+    text-align: start;
   }
 }

@@ -30,14 +30,14 @@ const SignUp: NextPage = () => {
   );
 
   useEffect(() => {
-    if (error) {
+    if (error.length > 0) {
       setTimeout(() => {
-        dispatch(restart());
+        // dispatch(restart());
       }, 5000);
     }
   }, [error]);
 
-  errors ? console.log(errors) : null;
+  console.log(errors);
 
   return width < 1000 ? (
     <div className={styles.container}>
@@ -123,25 +123,28 @@ const SignUp: NextPage = () => {
         <button className={styles.button} type="submit">
           Sign up
         </button>
-        {error ? (
-          <div className={styles.error}>
-            <h3>Ups...</h3>
-            <div className={styles.hr3}></div>
-            {error?.map((err: { msg: string }, i) => (
-              <p key={i}>{err.msg}</p>
-            ))}
+        {error.length > 0 ? (
+          <div className={styles.errorContainer}>
+            <div className={styles.error}>
+              <h3>Ups...</h3>
+              <div className={styles.hr3}></div>
+              {error?.map((err: { msg: string }, i) => (
+                <p key={i}>{err.msg}</p>
+              ))}
+            </div>
           </div>
         ) : null}
         {Object.keys(errors).length !== 0 ? (
-          <div className={styles.error}>
-            <h3>Ups...</h3>
-            <div className={styles.hr3}></div>
-            {Object.values(errors).map((error: any, i) => (
-              <p key={i}>{error}</p>
-            ))}
+          <div className={styles.errorContainer}>
+            <div className={styles.error}>
+              <h3>Ups...</h3>
+              <div className={styles.hr3}></div>
+              {Object.values(errors).map((error: any, i) => (
+                <p key={i}>{error}</p>
+              ))}
+            </div>
           </div>
         ) : null}
-        
       </form>
     </div>
   ) : (
@@ -241,7 +244,7 @@ const SignUp: NextPage = () => {
             <button className={styles.button} type="submit">
               Sign up
             </button>
-            {error ? (
+            {error.length > 0 ? (
               <div className={styles.error}>
                 <h3>Ups...</h3>
                 <div className={styles.hr3}></div>
